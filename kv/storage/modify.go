@@ -17,11 +17,12 @@ type Delete struct {
 }
 
 func (m *Modify) Key() []byte {
-	switch m.Data.(type) {
+	/*类型断言value, ok := interfaceVariable.(concreteType)*/
+	switch v := m.Data.(type) {
 	case Put:
-		return m.Data.(Put).Key
+		return v.Key
 	case Delete:
-		return m.Data.(Delete).Key
+		return v.Key
 	}
 	return nil
 }
