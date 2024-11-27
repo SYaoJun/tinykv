@@ -86,9 +86,7 @@ func (s *StandAloneStorage) Write(ctx *kvrpcpb.Context, batch []storage.Modify) 
 }
 
 /*
-*
-
-	实现 StorageReader 接口
+实现 StorageReader 接口
 */
 func (s *StandAloneReader) GetCF(cf string, key []byte) ([]byte, error) {
 	value, err := engine_util.GetCFFromTxn(s.kvTxn, cf, key)
